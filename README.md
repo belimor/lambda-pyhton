@@ -1,2 +1,2 @@
 # lambda-pyhton
-Script for to deploy python lambdas
+Script to deploy python lambdas
