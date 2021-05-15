@@ -5,7 +5,7 @@
 aws_region  = "us-west-2"
 aws_profile = "default"
 
-project = "Lambda-Python"
+project = "TEST"
 
 custom_tags = {
   Owner     = "Dmtr"
@@ -13,7 +13,7 @@ custom_tags = {
 }
 
 AMI           = "ami-0cf6f5c8a62fa5da6"
-INSTANCE_TYPE = "t2a.micro"
-KEY_NAME      = "my_ssh_key"
+INSTANCE_TYPE = "t2.nano"
+KEY_NAME      = "ssh_key"
 SUBNET_ID     = "subnet-0123456789109da4"
 

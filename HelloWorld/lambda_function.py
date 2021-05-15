@@ -1,16 +1,16 @@
 import os
 import json
-import boto
+import boto3
 
-AMI = os.environment['AMI']
-INSTANCE_TYPE = os.environment['INSTANCE_TYPE']
-KEY_NAME = os.environment['KEY_NAME']
-SUBNET_ID = os.environment['SUBNET_ID']
+AMI = os.environ['AMI']
+INSTANCE_TYPE = os.environ['INSTANCE_TYPE']
+KEY_NAME = os.environ['KEY_NAME']
+SUBNET_ID = os.environ['SUBNET_ID']
 
-ec2 = botot3.resource('ec2')
+ec2 = boto3.resource('ec2')
 
 def lambda_handler(event, context):
-    instance = ec2.create_instance(
+    instance = ec2.create_instances(
         ImageId         = AMI,
         InstanceType    = INSTANCE_TYPE,
         KeyName         = KEY_NAME,

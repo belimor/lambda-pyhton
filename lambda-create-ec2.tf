@@ -4,7 +4,7 @@
 
 data "archive_file" "Lambda-Archive" {
   type        = "zip"
-  source_file = "${path.module}/HelloWorld"
+  source_dir = "${path.module}/HelloWorld"
   output_path = "${path.module}/tmp/HelloWorld.zip"
 }
 
@@ -12,7 +12,7 @@ resource "aws_lambda_function" "Lambda-Python" {
 
   function_name = "${var.project}-Lambda-Python"
   description   = "Lambda-Python"
-  filename      = data.archive_file.Lambda-Archive.autput_path
+  filename      = data.archive_file.Lambda-Archive.output_path
   runtime       = "python3.7"
   role          = aws_iam_role.Lambda-Role.arn
   handler       = "lambda_function.lambda_handler"
