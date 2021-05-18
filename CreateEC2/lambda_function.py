@@ -23,7 +23,21 @@ def lambda_handler(event, context):
     print('====')
     print(event)
     print('====')
+    
+    status = instance.update()
+        while status == 'pending':
+            time.sleep(10)
+            print('Waiting for the instances...')
+            status = instance.update()
+
+    if status == 'running':
+        instance.add_tag("Name","tmp")
+        instance.add_tag("Action","Stop")
+    else:
+        print('Instance status: ' + status)
+        return None
+
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
+        'body': json.dumps('This is the end')
     }

@@ -1,4 +1,4 @@
-variable "project" {
+variable "aws_project" {
   type        = string
   description = "Project name"
 }
@@ -13,7 +13,7 @@ variable "aws_profile" {
   description = "AWS credentials profile"
 }
 
-variable "custom_tags" {
+variable "project_tags" {
   description = ""
   type        = map(string)
 }

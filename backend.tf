@@ -1,14 +1,14 @@
 #########################################
-# Backend Configuration
+# S3 Backend Configuration
 #########################################
 
 #terraform {
 #  backend "s3" {
-#    bucket         = "bucket-name"
+#    bucket         = "s3-bucket-name"
 #    dynamodb_table = "dynamodb-name"
 #    encrypt        = true
 #    key            = "lambda/terraform.tfstate"
-#    region         = "region"
+#    region         = "us-east-1"
 #    profile        = "default"
 #  }
 #}
