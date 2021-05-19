@@ -43,3 +43,15 @@ variable "environment_variables" {
   type        = map(string)
   default     = {}
 }
+
+variable "project_tags" {
+  description = ""
+  type        = map(string)
+  default     = {}
+}
+
+variable "cloudwatch_logs_retention_in_days" {
+  description = ""
+  type        = number
+  default     = 3
+}

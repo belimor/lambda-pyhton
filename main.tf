@@ -1,5 +1,5 @@
 module "Hello-World-Lambda" {
-  source        = "modules/lambda"
+  source        = "./modules/lambda"
 
   function_name = "HelloWorld"
   description   = "Hello World Lambda Function"
