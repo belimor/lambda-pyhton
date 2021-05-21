@@ -23,3 +23,7 @@ variable "INSTANCE_TYPE" {}
 variable "KEY_NAME" {}
 variable "SUBNET_ID" {}
 
+variable "environment_variables" {
+  description = ""
+  type        = map(string)
+}

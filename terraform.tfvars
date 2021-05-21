@@ -11,6 +11,9 @@ project_tags = {
   createdby = "Terraform"
 }
 
+environment_variables = {
+}
+
 AMI           = "ami-0cf6f5c8a62fa5da6"
 INSTANCE_TYPE = "t2.nano"
 KEY_NAME      = "ssh_key"

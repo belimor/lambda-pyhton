@@ -50,7 +50,7 @@ variable "project_tags" {
   default     = {}
 }
 
-variable "cloudwatch_logs_retention_days" {
+variable "cloudwatch_logs_retention_in_days" {
   description = ""
   type        = number
   default     = 3
