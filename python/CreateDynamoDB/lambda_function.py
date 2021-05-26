@@ -3,14 +3,6 @@ import boto3
 
 def lambda_handler(event, context):
 
-    user = {
-        "name": "John",
-        "age": 33
-    }
-
-    user_data = json.dumps(user)
-    print(user_data)
-
     dynamodb = boto3.resource('dynamodb')
 
     table = dynamodb.create_table(
@@ -46,6 +38,26 @@ def lambda_handler(event, context):
     print('Creating DynamoDB: ', table.name, '...')
     table.meta.client.get_waiter('table_exists').wait(TableName='HelloWorld')
     print('Table status:', dynamodb.Table('HelloWorld').table_status)
+
+    user = {
+        "name": "John",
+        "age": 33
+    }
+
+    #user_data = json.dumps(user)
+    user_data = json.load(user)
+    print(user_data)
+
+    for user in user_data:
+        name = user_data['name']
+        age = int(user_data['age'])
+
+        table.put_item(
+                Item={
+                    'name': name,
+                    'age': age,
+                }
+            )
 
     return {
         'statusCode': 200,
