@@ -52,8 +52,13 @@ data "aws_iam_policy_document" "lambda-assume-role-policy" {
   }
 }
 
+resource "random_string" "random" {
+  length           = 8
+  special = false
+}
+
 resource "aws_iam_role" "Lambda-Role" {
-  name                = "${var.aws_project}-Lambda-Role"
+  name                = "${var.aws_project}-Lambda-Role-${random_string.random.result}"
   assume_role_policy  = data.aws_iam_policy_document.lambda-assume-role-policy.json
   managed_policy_arns = [data.aws_iam_policy.AWSLambdaBasicExecutionRole.arn]
 
